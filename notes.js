@@ -9,17 +9,20 @@ const addNote = (title, body) => {
   const duplicateNotes = notes.filter(note => {
     return note.title === title;
   });
-
   if (duplicateNotes.length === 0) {
     notes.push({
       title: title,
       body: body,
     });
-      saveNotes(notes);
-      console.log('new note added')
+    saveNotes(notes);
+    console.log('new note added');
   } else {
-      console.log('Note title exists')
+    console.log('Note title exists');
   }
+};
+
+const removeNote = title => {
+  console.log('testing 123');
 };
 
 const saveNotes = notes => {
@@ -40,4 +43,5 @@ const loadNotes = () => {
 module.exports = {
   getNotes: getNotes,
   addNote: addNote,
+  removeNote: removeNote,
 };

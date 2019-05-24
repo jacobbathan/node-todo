@@ -22,7 +22,7 @@ const addNote = (title, body) => {
 };
 
 const removeNote = title => {
-  console.log('testing 123');
+  console.log(title);
 };
 
 const saveNotes = notes => {

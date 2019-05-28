@@ -46,16 +46,14 @@ const saveNotes = notes => {
 
 const readNote = title => {
   const notes = loadNotes();
-  const noteToRead = notes.filter(note => note.title === title);
-  if (noteToRead.length === 0) {
+  const noteToRead = notes.find(note => note.title === title);
+  if (!noteToRead) {
     console.log(chalk.red.inverse('Note not found'));
   } else {
-    noteToRead.forEach(note => {
-      console.log(chalk.yellow.inverse(note.title));
-      console.log(note.body);
-    });
-  }
-};
+      console.log(chalk.yellow.inverse(noteToRead.title));
+      console.log(noteToRead.body);
+    };
+  };
 
 const loadNotes = () => {
   try {

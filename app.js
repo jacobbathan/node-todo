@@ -2,7 +2,7 @@ const chalk = require('chalk');
 const yargs = require('yargs');
 const notes = require('./notes.js');
 
-yargs.version('1.1.0');
+yargs.version('1.2.0');
 
 yargs.command({
   command: 'add',
@@ -43,7 +43,7 @@ yargs.command({
   command: 'list',
   describe: 'list a note',
   handler() {
-    console.log('listing notes');
+    notes.listNotes();
   },
 });
 
@@ -57,8 +57,8 @@ yargs.command({
       type: 'string',
     },
   },
-  handler() {
-    console.log('reading notes');
+  handler: argv => {
+    notes.readNote(argv.title);
   },
 });
 
